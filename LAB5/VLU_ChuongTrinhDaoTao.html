@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chương trình đào tạo - Đại học Văn Lang</title>
+    <style>
+        /* Ảnh và phông chữ lấy từ https://www.vlu.edu.vn/. */
+        @font-face {
+            font-family: "Plus Jakarta Sans";
+            src: url("images/vlu/PlusJakartaSans-Regular.ttf");
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: "Plus Jakarta Sans";
+            src: url("images/vlu/PlusJakartaSans-Bold.ttf");
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: "IBM Plex Sans";
+            src: url("images/vlu/IBMPlexSans-Regular.ttf");
+            font-weight: 400;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background-color: white;
+            color: #171414;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 16px;
+            line-height: 1.3;
+            letter-spacing: 0.64px;
+        }
+        .chuongtrinh {
+            width: 91.6%;
+            max-width: 1440px;
+            margin: auto;
+            padding: 16px 0 48px;
+        }
+        h1 {
+            margin: 0 0 40px;
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        .danhsach {
+            display: flex;
+            justify-content: space-between;
+        }
+        .chuongtrinh-item { width: 32%; }
+        .khunganh {
+            aspect-ratio: 16 / 9;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .chuongtrinh-item:last-child .anh { transform: scale(1.1); }
+        .anh {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        h2 {
+            margin: 12px 0;
+            font-size: 18px;
+            font-weight: 400;
+        }
+        .mota {
+            margin: 17px 0;
+            font-family: "IBM Plex Sans", sans-serif;
+            font-size: 18px;
+            line-height: 1.4;
+            text-align: justify;
+        }
+        .timhieu {
+            display: inline-block;
+            margin: 0;
+            color: #ed1b2f;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .timhieu:hover { text-decoration: underline; }
+        /* Biểu tượng cookie xuất hiện ở góc dưới trong hình tham khảo. */
+        .cookie {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #df1731;
+            box-shadow: 0 4px 20px #df173133;
+        }
+        .cookie svg { width: 20px; height: 20px; }
+    </style>
+</head>
+<body>
+    <section class="chuongtrinh">
+        <h1>Chương trình đào tạo</h1>
+        <div class="danhsach">
+            <article class="chuongtrinh-item">
+                <div class="khunganh">
+                    <img class="anh" src="images/vlu/dai-hoc.jpg" alt="Sinh viên Văn Lang học tập theo nhóm">
+                </div>
+                <h2>Chương trình Đại học</h2>
+                <p class="mota">Chương trình toàn diện giúp hình thành và đẩy mạnh tư duy nghiên cứu ở người học, trang bị các kỹ năng hữu ích để phát triển sự nghiệp tương lai.</p>
+                <a class="timhieu" href="https://www.vlu.edu.vn/academics#ungraduate_programs_content">Tìm hiểu Chương trình Đại học</a>
+            </article>
+            <article class="chuongtrinh-item">
+                <div class="khunganh">
+                    <img class="anh" src="images/vlu/sau-dai-hoc.jpg" alt="Lớp học chương trình Sau đại học">
+                </div>
+                <h2>Chương trình Sau đại học</h2>
+                <p class="mota">Chương trình đào tạo nâng cao, cung cấp tài nguyên học thuật và nghiên cứu phong phú để giúp người học tìm tòi sâu hơn vào lĩnh vực mong muốn.</p>
+                <a class="timhieu" href="https://saudaihoc.vlu.edu.vn/">Tìm hiểu Chương trình Sau đại học</a>
+            </article>
+            <article class="chuongtrinh-item">
+                <div class="khunganh">
+                    <img class="anh" src="images/vlu/vgs.jpg" alt="Giảng viên quốc tế giảng dạy chương trình VGS">
+                </div>
+                <h2>Chương trình VGS</h2>
+                <p class="mota">Chương trình tạo cơ hội cho người học nhận bằng cấp từ các đại học hàng đầu thế giới và có thêm trải nghiệm với tư cách một công dân toàn cầu.</p>
+                <a class="timhieu" href="https://www.vlu.edu.vn/academics#international_programs_content">Tìm hiểu Chương trình VGS</a>
+            </article>
+        </div>
+    </section>
+    <span class="cookie" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="white" d="M20.5 10.5a4 4 0 0 1-5-5A4 4 0 0 1 12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10c0-.6-.1-1.1-.2-1.7-.4.2-.8.2-1.3.2Z"/>
+            <g fill="#df1731"><circle cx="8" cy="8" r="1"/><circle cx="6" cy="13" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="10" cy="17" r="1"/><circle cx="17" cy="15" r="1"/></g>
+        </svg>
+    </span>
+</body>
+</html>

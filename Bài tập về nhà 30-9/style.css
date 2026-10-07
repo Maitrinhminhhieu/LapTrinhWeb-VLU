@@ -1,0 +1,106 @@
+/* Tính padding và border trong kích thước phần tử để tránh tràn. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0 16px;
+    background-color: #eef4fb;
+    color: #25354b;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Selector id chọn riêng card này. */
+#profile-card {
+    text-align: center;
+}
+
+/* margin auto căn giữa; max-width giúp card vừa màn hình nhỏ. */
+.card {
+    width: 350px;
+    max-width: 100%;
+    margin: 50px auto;
+    padding: 28px 24px;
+    border: 1px solid #cbd9eb;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 12px 32px rgba(37, 70, 110, 0.08);
+    overflow-wrap: break-word;
+}
+
+/* Hai chiều bằng nhau và border-radius 50% tạo avatar hình tròn. */
+.avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 18px;
+    border: 4px solid #dbeafe;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.name {
+    margin: 0 0 8px;
+    font-size: 27px;
+    line-height: 1.25;
+    color: #172d4c;
+}
+
+.job {
+    margin: 0 0 20px;
+    font-size: 15px;
+    color: #2563ab;
+    font-weight: bold;
+}
+
+.intro {
+    margin: 0 0 24px;
+    font-size: 15px;
+    color: #526174;
+}
+
+.section-title {
+    margin: 0 0 10px;
+    font-size: 17px;
+}
+
+.skills {
+    margin: 0 0 22px;
+    padding: 0;
+    list-style: none;
+}
+
+.skill {
+    display: inline-block;
+    max-width: 100%;
+    margin: 4px 2px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background-color: #eaf2fe;
+    color: #24578f;
+    font-size: 13px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 11px 32px;
+    border-radius: 10px;
+    background-color: #2563ab;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+/* Đổi màu khi rê chuột hoặc chọn nút bằng bàn phím. */
+.btn:hover {
+    background-color: #174578;
+}
+
+.btn:focus-visible {
+    background-color: #174578;
+    outline: 3px solid #93b9ed;
+    outline-offset: 4px;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- Bài tập TEST của Thầy - TIKI -->
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiki Shopping</title>
+    <style>
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .product-item {
+            width: calc(25% - 8px);
+            border: 1px solid gray;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .product-item:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   
+        }
+        img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        .product-name, .star, .price {
+            padding: 8px;
+        }
+        .product-name {
+            margin: 0;
+        }
+        .star {
+            display: block;
+            color: #f5a623;
+        }
+        .price {
+            margin: 0;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Gợi Ý Hôm Nay</h2>
+    <div class="product">
+
+        <!--Item 1-->
+        <div class="product-item">
+            <img src="https://cdn1.fahasa.com/media/catalog/product/9/7/9784088805320.jpg" alt="HAI KYUU !!">
+            <h3 class="product-name">HAI KYUU !!</h3>
+            <span class="star">★★★★★</span>
+            <p class="price">149.000₫</p>
+        </div>
+
+        <!--Item 2-->
+        <div class="product-item">
+            <img src="https://cdn.hstatic.net/products/200000294254/b_a_sasaki_v__miyano_9_c3e72b4d6f4041c8947f038104438cd1_large.png" alt="SASAKI TO MYANO">
+            <h3 class="product-name">SASAKI TO MYANO</h3>
+            <span class="star">★★★★★</span>
+            <p class="price">179.000₫</p>
+        </div>
+
+        <!--Item 3-->
+        <div class="product-item">
+            <img src="https://m.media-amazon.com/images/I/41-BCGPGE8L._SY445_SX342_FMwebp_.jpg" alt="The Summer Hikaru Died">
+            <h3 class="product-name">The Summer Hikaru Died</h3>
+            <span class="star">★★★★★</span>
+            <p class="price">111.000₫</p>
+        </div>
+
+        <!--Item 4-->
+        <div class="product-item">
+            <img src="https://m.media-amazon.com/images/I/81XrWfkGbzL._SY522_.jpg" alt="GIVEN">
+            <h3 class="product-name">GIVEN</h3>
+            <span class="star">★★★★★</span>
+            <p class="price">99.000₫</p>
+        </div>
+    </div>
+
+</body>
+</html>

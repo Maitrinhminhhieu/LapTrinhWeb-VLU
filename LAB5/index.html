@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <style> 
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }   
+        .item{
+            width: 200px;
+            height: 100px;
+            border: 1px solid #ccc;
+        }
+        .red{
+            background-color: red;
+            height: 200px;
+        }
+        .green{
+            background-color: green;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .container {
+            border: 1px solid #ccc; 
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: row;
+
+        }
+    </style>
+</head>
+<body>
+    <h1> HỌC FLEXBOX CƠ BẢN</h1>
+    <div class="container">
+        <div class="item red">Box1</div>
+        <div class="item blue">Box2</div>
+        <div class="item green">Box3</div>
+    </div>
+</body>
+</html>
