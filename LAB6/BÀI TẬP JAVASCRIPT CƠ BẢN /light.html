@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--code css ở đây. 
+        14/10/2026 chưa viết gì về CSS, chỉ tập trung vào Javascript. --> 
+</head>
+<body>
+    <h2>Chương Trình Bật / Tắt Bóng Đèn</h2>
+    <button onclick="toggleLight()">Bật/Tắt Đèn</button>
+    <img id="lightBulb" src="bulboff.gif" alt="Bóng Đèn" style="width: 200px; height: auto;">
+    
+    <!--code javascript ở đây-->
+    <script>
+        // Viết code js ở đây
+        function toggleLight(){
+            // Ánh xạ 
+            let toggle = document.getElementById("lightBulb");
+            if (toggle.src.includes("bulboff.gif")){
+                toggle.src = "bulbon.gif";
+            } else {
+                toggle.src = "bulboff.gif";
+            }
+        }
+    </script>
+</body>
+</html>

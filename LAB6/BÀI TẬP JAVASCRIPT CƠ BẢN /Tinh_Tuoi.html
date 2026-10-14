@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chương trình tính tuổi</title>
+</head>
+<body>
+    <h2>Chương trình tính tuổi</h2>
+    <label for="namsinh">Nhập năm sinh của bạn:</label>
+    <input type="number" id="namsinh">
+    <button onclick="tinhtuoi()">Tính tuổi</button>
+    <h3 id="ketqua"></h3>
+    <script>
+        function tinhtuoi(){
+            let namSinh = Number(document.getElementById("namsinh").value);
+            let namHienTai = new Date().getFullYear();
+            let tuoi = namHienTai - namSinh;
+            document.getElementById("ketqua").innerHTML = "Tuổi của bạn là: " + tuoi;
+        }
+    </script>
+</body>
+</html>
