@@ -13,6 +13,11 @@
     <h3 id="ketqua"></h3>
     <script>
         function dudoan(){
+            const values = ["ten"].map(id => document.getElementById(id).value.trim());
+            if (values.some(value => value === "")) {
+                document.getElementById("ketqua").textContent = "Vui lòng nhập đầy đủ dữ liệu hợp lệ, đúng phạm vi yêu cầu.";
+                return;
+            }
             let ten = document.getElementById("ten").value;
             let danhSach = ["Lập trình viên", "Giáo viên", "Bác sĩ", "Kỹ sư", "Đầu bếp"];
             let nghe = danhSach[Math.floor(Math.random() * danhSach.length)];

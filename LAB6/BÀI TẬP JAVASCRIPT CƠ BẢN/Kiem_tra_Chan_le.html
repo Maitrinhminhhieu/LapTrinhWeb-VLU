@@ -13,6 +13,11 @@
     <h3 id="ketqua"></h3>
     <script>
         function kiemtra(){
+            const values = ["so"].map(id => document.getElementById(id).value.trim());
+            if (values.some(value => value === "" || !Number.isFinite(Number(value))) || !Number.isInteger(Number(values[0]))) {
+                document.getElementById("ketqua").textContent = "Vui lòng nhập đầy đủ dữ liệu hợp lệ, đúng phạm vi yêu cầu.";
+                return;
+            }
             let so = Number(document.getElementById("so").value);
             if(so % 2 == 0){
                 document.getElementById("ketqua").innerHTML = so + " là số chẵn.";

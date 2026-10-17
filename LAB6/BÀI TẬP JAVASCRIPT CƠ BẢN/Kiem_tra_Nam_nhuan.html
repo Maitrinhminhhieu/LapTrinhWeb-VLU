@@ -13,6 +13,11 @@
     <h3 id="ketqua"></h3>
     <script>
         function kiemtra(){
+            const values = ["nam"].map(id => document.getElementById(id).value.trim());
+            if (values.some(value => value === "" || !Number.isFinite(Number(value))) || !Number.isInteger(Number(values[0])) || Number(values[0]) < 1) {
+                document.getElementById("ketqua").textContent = "Vui lòng nhập đầy đủ dữ liệu hợp lệ, đúng phạm vi yêu cầu.";
+                return;
+            }
             let nam = Number(document.getElementById("nam").value);
             if(nam % 400 == 0 || (nam % 4 == 0 && nam % 100 != 0)){
                 document.getElementById("ketqua").innerHTML = nam + " là năm nhuận.";

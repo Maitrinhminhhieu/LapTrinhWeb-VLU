@@ -13,6 +13,11 @@
     <h3 id="ketqua"></h3>
     <script>
         function chuyendoi(){
+            const values = ["doC"].map(id => document.getElementById(id).value.trim());
+            if (values.some(value => value === "" || !Number.isFinite(Number(value)))) {
+                document.getElementById("ketqua").textContent = "Vui lòng nhập đầy đủ dữ liệu hợp lệ, đúng phạm vi yêu cầu.";
+                return;
+            }
             let doC = Number(document.getElementById("doC").value);
             let doF = (9 / 5) * doC + 32;
             document.getElementById("ketqua").innerHTML = doC + " °C = " + doF + " °F";

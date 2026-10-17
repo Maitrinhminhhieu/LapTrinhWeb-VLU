@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Xem bói tình yêu</title>
 </head>
 <body>
     <h2> Xem bói tình Yêu </h2>
@@ -16,6 +16,11 @@
     <h3 id="ketqua"></h3>
     <script>
         function xemboi(){
+            const values = ["tenban", "tennguoi"].map(id => document.getElementById(id).value.trim());
+            if (values.some(value => value === "")) {
+                document.getElementById("ketqua").textContent = "Vui lòng nhập đầy đủ dữ liệu hợp lệ, đúng phạm vi yêu cầu.";
+                return;
+            }
         let tenBan = document.getElementById("tenban").value;
         let tenNguoi = document.getElementById("tennguoi").value;
         let diem = Math.floor(Math.random() * 100) + 1;

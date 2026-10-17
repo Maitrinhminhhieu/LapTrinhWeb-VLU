@@ -20,6 +20,11 @@
     <h3 id="ketqua"></h3>
     <script>
         function tinh(phepTinh){
+            const values = ["so1", "so2"].map(id => document.getElementById(id).value.trim());
+            if (values.some(value => value === "" || !Number.isFinite(Number(value)))) {
+                document.getElementById("ketqua").textContent = "Vui lòng nhập đầy đủ dữ liệu hợp lệ, đúng phạm vi yêu cầu.";
+                return;
+            }
             let so1 = Number(document.getElementById("so1").value);
             let so2 = Number(document.getElementById("so2").value);
             let ketQua;

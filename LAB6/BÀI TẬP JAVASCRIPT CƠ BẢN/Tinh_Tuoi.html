@@ -13,6 +13,11 @@
     <h3 id="ketqua"></h3>
     <script>
         function tinhtuoi(){
+            const values = ["namsinh"].map(id => document.getElementById(id).value.trim());
+            if (values.some(value => value === "" || !Number.isFinite(Number(value))) || !Number.isInteger(Number(values[0])) || Number(values[0]) < 1 || Number(values[0]) > new Date().getFullYear()) {
+                document.getElementById("ketqua").textContent = "Vui lòng nhập đầy đủ dữ liệu hợp lệ, đúng phạm vi yêu cầu.";
+                return;
+            }
             let namSinh = Number(document.getElementById("namsinh").value);
             let namHienTai = new Date().getFullYear();
             let tuoi = namHienTai - namSinh;

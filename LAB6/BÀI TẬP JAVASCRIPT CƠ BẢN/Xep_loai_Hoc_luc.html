@@ -13,6 +13,11 @@
     <h3 id="ketqua"></h3>
     <script>
         function xeploai(){
+            const values = ["diem"].map(id => document.getElementById(id).value.trim());
+            if (values.some(value => value === "" || !Number.isFinite(Number(value))) || Number(values[0]) < 0 || Number(values[0]) > 100) {
+                document.getElementById("ketqua").textContent = "Vui lòng nhập đầy đủ dữ liệu hợp lệ, đúng phạm vi yêu cầu.";
+                return;
+            }
             let diem = Number(document.getElementById("diem").value);
             let loai;
             if(diem >= 90){
