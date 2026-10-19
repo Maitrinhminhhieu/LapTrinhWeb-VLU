@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 14: Tìm số bị thiếu</title>
+</head>
+<body>
+    <h2>Bài 14: Tìm số bị thiếu</h2>
+    <p>Các số nguyên từ 1 đến n, không trùng lặp, thiếu tối đa một số. Không thiếu số nào thì trả về 0.</p>
+    <p><label for="mang">Nhập các số, cách nhau bằng dấu phẩy:</label></p>
+    <input type="text" id="mang" value="1, 2, 4, 5, 6" size="35">
+    <p><label for="n">Số n:</label> <input type="number" id="n" value="6"></p>
+    <button type="button" onclick="hienKetQua()">Xem kết quả</button>
+    <h3 id="ketqua"></h3>
+    <script>
+        function findMissingNumber(arr, n) {
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+            return n * (n + 1) / 2 - sum;
+        }
+
+        function hienKetQua() {
+            let text = document.getElementById("mang").value.trim();
+            let arr = [];
+            if (text !== "") {
+                let parts = text.split(",");
+                for (let i = 0; i < parts.length; i++) {
+                    let item = parts[i].trim();
+                    if (item === "" || !Number.isFinite(Number(item)) || !Number.isInteger(Number(item))) {
+                        document.getElementById("ketqua").textContent = "Vui lòng nhập các số nguyên hợp lệ.";
+                        return;
+                    }
+                    arr.push(Number(item));
+                }
+            }
+            let nText = document.getElementById("n").value.trim();
+            let n = Number(nText);
+            if (nText === "" || !Number.isFinite(n) || !Number.isInteger(n) || n < 1) {
+                document.getElementById("ketqua").textContent = "Vui lòng nhập số n hợp lệ.";
+                return;
+            }
+            if (arr.length !== n && arr.length !== n - 1) {
+                document.getElementById("ketqua").textContent = "Mảng chỉ được thiếu tối đa một số từ 1 đến n.";
+                return;
+            }
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] < 1 || arr[i] > n) {
+                    document.getElementById("ketqua").textContent = "Các phần tử phải nằm trong khoảng từ 1 đến n.";
+                    return;
+                }
+                for (let j = 0; j < i; j++) {
+                    if (arr[i] === arr[j]) {
+                        document.getElementById("ketqua").textContent = "Mảng không được chứa phần tử trùng lặp.";
+                        return;
+                    }
+                }
+            }
+            let result = findMissingNumber(arr, n);
+            document.getElementById("ketqua").textContent = "Kết quả: " + JSON.stringify(result);
+        }
+    </script>
+</body>
+</html>

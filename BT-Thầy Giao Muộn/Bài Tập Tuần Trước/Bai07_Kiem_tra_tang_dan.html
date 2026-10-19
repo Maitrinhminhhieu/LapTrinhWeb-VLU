@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 7: Kiểm tra mảng tăng dần</title>
+</head>
+<body>
+    <h2>Bài 7: Kiểm tra mảng tăng dần</h2>
+    <p>Mỗi số sau phải lớn hơn số trước. Mảng rỗng hoặc chỉ có một phần tử trả về false.</p>
+    <p><label for="mang">Nhập các số, cách nhau bằng dấu phẩy:</label></p>
+    <input type="text" id="mang" value="1, 2, 3, 5" size="35">
+    <button type="button" onclick="hienKetQua()">Xem kết quả</button>
+    <h3 id="ketqua"></h3>
+    <script>
+        function isAscending(arr) {
+            if (arr.length < 2) return false;
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] <= arr[i - 1]) return false;
+            }
+            return true;
+        }
+
+        function hienKetQua() {
+            let text = document.getElementById("mang").value.trim();
+            let arr = [];
+            if (text !== "") {
+                let parts = text.split(",");
+                for (let i = 0; i < parts.length; i++) {
+                    let item = parts[i].trim();
+                    if (item === "" || !Number.isFinite(Number(item))) {
+                        document.getElementById("ketqua").textContent = "Vui lòng nhập các số hợp lệ.";
+                        return;
+                    }
+                    arr.push(Number(item));
+                }
+            }
+            let result = isAscending(arr);
+            document.getElementById("ketqua").textContent = "Kết quả: " + JSON.stringify(result);
+        }
+    </script>
+</body>
+</html>

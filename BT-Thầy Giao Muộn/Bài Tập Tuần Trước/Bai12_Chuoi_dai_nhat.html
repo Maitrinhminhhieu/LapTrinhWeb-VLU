@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 12: Tìm chuỗi dài nhất</title>
+</head>
+<body>
+    <h2>Bài 12: Tìm chuỗi dài nhất</h2>
+    <p>Nếu các chuỗi dài bằng nhau, lấy chuỗi xuất hiện đầu tiên.</p>
+    <p><label for="mang">Nhập các chuỗi, cách nhau bằng dấu phẩy:</label></p>
+    <input type="text" id="mang" value="apple, banana, cherry, date" size="35">
+    <button type="button" onclick="hienKetQua()">Xem kết quả</button>
+    <h3 id="ketqua"></h3>
+    <script>
+        function findLongestWord(arr) {
+            if (arr.length === 0) return "";
+            let longest = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i].length > longest.length) longest = arr[i];
+            }
+            return longest;
+        }
+
+        function hienKetQua() {
+            let text = document.getElementById("mang").value.trim();
+            let arr = [];
+            if (text !== "") {
+                let parts = text.split(",");
+                for (let i = 0; i < parts.length; i++) {
+                    let item = parts[i].trim();
+                    if (item === "") {
+                        document.getElementById("ketqua").textContent = "Vui lòng nhập các chuỗi không rỗng.";
+                        return;
+                    }
+                    arr.push(item);
+                }
+            }
+            if (arr.length === 0) {
+                document.getElementById("ketqua").textContent = "Vui lòng nhập ít nhất một phần tử.";
+                return;
+            }
+            let result = findLongestWord(arr);
+            document.getElementById("ketqua").textContent = "Kết quả: " + JSON.stringify(result);
+        }
+    </script>
+</body>
+</html>

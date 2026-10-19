@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 15: Xóa phần tử trùng lặp</title>
+</head>
+<body>
+    <h2>Bài 15: Xóa phần tử trùng lặp</h2>
+    <p><label for="mang">Nhập các số hoặc chuỗi, cách nhau bằng dấu phẩy:</label></p>
+    <input type="text" id="mang" value="1, 2, 2, 3, 4, 4, 5" size="35">
+    <button type="button" onclick="hienKetQua()">Xem kết quả</button>
+    <h3 id="ketqua"></h3>
+    <script>
+        function removeDuplicates(arr) {
+            let result = [];
+            for (let i = 0; i < arr.length; i++) {
+                let found = false;
+                for (let j = 0; j < result.length; j++) {
+                    if (arr[i] === result[j]) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) result.push(arr[i]);
+            }
+            return result;
+        }
+
+        function hienKetQua() {
+            let text = document.getElementById("mang").value.trim();
+            let arr = [];
+            if (text !== "") {
+                let parts = text.split(",");
+                for (let i = 0; i < parts.length; i++) {
+                    let item = parts[i].trim();
+                    if (item === "") {
+                        document.getElementById("ketqua").textContent = "Vui lòng không để trống phần tử giữa các dấu phẩy.";
+                        return;
+                    }
+                    if (Number.isFinite(Number(item))) {
+                        arr.push(Number(item));
+                    } else {
+                        arr.push(item);
+                    }
+                }
+            }
+            let result = removeDuplicates(arr);
+            document.getElementById("ketqua").textContent = "Kết quả: " + JSON.stringify(result);
+        }
+    </script>
+</body>
+</html>

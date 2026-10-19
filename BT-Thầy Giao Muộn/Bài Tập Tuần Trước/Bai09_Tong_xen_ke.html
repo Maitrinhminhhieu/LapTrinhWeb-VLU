@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 9: Tính tổng xen kẽ</title>
+</head>
+<body>
+    <h2>Bài 9: Tính tổng xen kẽ</h2>
+    <p><label for="mang">Nhập các số, cách nhau bằng dấu phẩy:</label></p>
+    <input type="text" id="mang" value="10, 5, 6, 3" size="35">
+    <button type="button" onclick="hienKetQua()">Xem kết quả</button>
+    <h3 id="ketqua"></h3>
+    <script>
+        function alternateSum(arr) {
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if (i % 2 === 0) {
+                    sum += arr[i];
+                } else {
+                    sum -= arr[i];
+                }
+            }
+            return sum;
+        }
+
+        function hienKetQua() {
+            let text = document.getElementById("mang").value.trim();
+            let arr = [];
+            if (text !== "") {
+                let parts = text.split(",");
+                for (let i = 0; i < parts.length; i++) {
+                    let item = parts[i].trim();
+                    if (item === "" || !Number.isFinite(Number(item))) {
+                        document.getElementById("ketqua").textContent = "Vui lòng nhập các số hợp lệ.";
+                        return;
+                    }
+                    arr.push(Number(item));
+                }
+            }
+            let result = alternateSum(arr);
+            document.getElementById("ketqua").textContent = "Kết quả: " + JSON.stringify(result);
+        }
+    </script>
+</body>
+</html>

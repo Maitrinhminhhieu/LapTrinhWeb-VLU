@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 16: Tìm cặp số có tổng cho trước</title>
+</head>
+<body>
+    <h2>Bài 16: Tìm cặp số có tổng cho trước</h2>
+    <p><label for="mang">Nhập các số, cách nhau bằng dấu phẩy:</label></p>
+    <input type="text" id="mang" value="1, 2, 3, 4, 5" size="35">
+    <p><label for="sum">Tổng cần tìm:</label> <input type="number" id="sum" value="5"></p>
+    <button type="button" onclick="hienKetQua()">Xem kết quả</button>
+    <h3 id="ketqua"></h3>
+    <script>
+        function findPairsWithSum(arr, sum) {
+            let result = [];
+            for (let i = 0; i < arr.length - 1; i++) {
+                for (let j = i + 1; j < arr.length; j++) {
+                    if (arr[i] + arr[j] === sum) {
+                        result.push([arr[i], arr[j]]);
+                    }
+                }
+            }
+            return result;
+        }
+
+        function hienKetQua() {
+            let text = document.getElementById("mang").value.trim();
+            let arr = [];
+            if (text !== "") {
+                let parts = text.split(",");
+                for (let i = 0; i < parts.length; i++) {
+                    let item = parts[i].trim();
+                    if (item === "" || !Number.isFinite(Number(item)) || !Number.isInteger(Number(item))) {
+                        document.getElementById("ketqua").textContent = "Vui lòng nhập các số nguyên hợp lệ.";
+                        return;
+                    }
+                    arr.push(Number(item));
+                }
+            }
+            let sumText = document.getElementById("sum").value.trim();
+            let sum = Number(sumText);
+            if (sumText === "" || !Number.isFinite(sum) || !Number.isInteger(sum)) {
+                document.getElementById("ketqua").textContent = "Vui lòng nhập tổng cần tìm hợp lệ.";
+                return;
+            }
+            let result = findPairsWithSum(arr, sum);
+            document.getElementById("ketqua").textContent = "Kết quả: " + JSON.stringify(result);
+        }
+    </script>
+</body>
+</html>

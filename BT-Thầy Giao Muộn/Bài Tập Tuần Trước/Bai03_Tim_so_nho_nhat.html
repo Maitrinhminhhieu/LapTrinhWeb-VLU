@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3: Tìm số nhỏ nhất</title>
+</head>
+<body>
+    <h2>Bài 3: Tìm số nhỏ nhất</h2>
+    <p><label for="mang">Nhập các số, cách nhau bằng dấu phẩy:</label></p>
+    <input type="text" id="mang" value="5, 2, 8, 1, 4" size="35">
+    <button type="button" onclick="hienKetQua()">Xem kết quả</button>
+    <h3 id="ketqua"></h3>
+    <script>
+        function findMin(arr) {
+            if (arr.length === 0) return null;
+            let min = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] < min) min = arr[i];
+            }
+            return min;
+        }
+
+        function hienKetQua() {
+            let text = document.getElementById("mang").value.trim();
+            let arr = [];
+            if (text !== "") {
+                let parts = text.split(",");
+                for (let i = 0; i < parts.length; i++) {
+                    let item = parts[i].trim();
+                    if (item === "" || !Number.isFinite(Number(item))) {
+                        document.getElementById("ketqua").textContent = "Vui lòng nhập các số hợp lệ.";
+                        return;
+                    }
+                    arr.push(Number(item));
+                }
+            }
+            if (arr.length === 0) {
+                document.getElementById("ketqua").textContent = "Vui lòng nhập ít nhất một phần tử.";
+                return;
+            }
+            let result = findMin(arr);
+            document.getElementById("ketqua").textContent = "Kết quả: " + JSON.stringify(result);
+        }
+    </script>
+</body>
+</html>

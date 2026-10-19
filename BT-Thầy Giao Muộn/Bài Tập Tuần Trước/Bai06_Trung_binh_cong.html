@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 6: Tính trung bình cộng</title>
+</head>
+<body>
+    <h2>Bài 6: Tính trung bình cộng</h2>
+    <p>Để trống ô nhập để thử mảng rỗng. Kết quả của mảng rỗng là 0.</p>
+    <p><label for="mang">Nhập các số, cách nhau bằng dấu phẩy:</label></p>
+    <input type="text" id="mang" value="10, 20, 30, 40, 50" size="35">
+    <button type="button" onclick="hienKetQua()">Xem kết quả</button>
+    <h3 id="ketqua"></h3>
+    <script>
+        function calculateAverage(arr) {
+            if (arr.length === 0) return 0;
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+            return sum / arr.length;
+        }
+
+        function hienKetQua() {
+            let text = document.getElementById("mang").value.trim();
+            let arr = [];
+            if (text !== "") {
+                let parts = text.split(",");
+                for (let i = 0; i < parts.length; i++) {
+                    let item = parts[i].trim();
+                    if (item === "" || !Number.isFinite(Number(item))) {
+                        document.getElementById("ketqua").textContent = "Vui lòng nhập các số hợp lệ.";
+                        return;
+                    }
+                    arr.push(Number(item));
+                }
+            }
+            let result = calculateAverage(arr);
+            document.getElementById("ketqua").textContent = "Kết quả: " + JSON.stringify(result);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 13: Tính điểm và xếp loại</title>
+</head>
+<body>
+    <h2>Bài 13: Tính điểm và xếp loại</h2>
+    <p>Điểm từ 0 đến 100. A: từ 90; B: từ 80; C: từ 70; D: từ 60; F: dưới 60.</p>
+    <p><label for="mang">Nhập các số, cách nhau bằng dấu phẩy:</label></p>
+    <input type="text" id="mang" value="90, 95, 100" size="35">
+    <button type="button" onclick="hienKetQua()">Xem kết quả</button>
+    <h3 id="ketqua"></h3>
+    <script>
+        function calculateGrade(arr) {
+            if (arr.length === 0) return "F";
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+            let average = sum / arr.length;
+            if (average >= 90) return "A";
+            if (average >= 80) return "B";
+            if (average >= 70) return "C";
+            if (average >= 60) return "D";
+            return "F";
+        }
+
+        function hienKetQua() {
+            let text = document.getElementById("mang").value.trim();
+            let arr = [];
+            if (text !== "") {
+                let parts = text.split(",");
+                for (let i = 0; i < parts.length; i++) {
+                    let item = parts[i].trim();
+                    if (item === "" || !Number.isFinite(Number(item)) || Number(item) < 0 || Number(item) > 100) {
+                        document.getElementById("ketqua").textContent = "Vui lòng nhập điểm từ 0 đến 100.";
+                        return;
+                    }
+                    arr.push(Number(item));
+                }
+            }
+            if (arr.length === 0) {
+                document.getElementById("ketqua").textContent = "Vui lòng nhập ít nhất một phần tử.";
+                return;
+            }
+            let result = calculateGrade(arr);
+            document.getElementById("ketqua").textContent = "Kết quả: " + JSON.stringify(result);
+        }
+    </script>
+</body>
+</html>
