@@ -1,0 +1,75 @@
+/* Ảnh lấy từ https://www.vlu.edu.vn/. */
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    background-color: white;
+    color: #171414;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.3;
+    letter-spacing: 0.64px;
+}
+.chuongtrinh {
+    width: 91.6%;
+    max-width: 1440px;
+    margin: auto;
+    padding: 16px 0 48px;
+}
+h1 {
+    margin: 0 0 40px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+.danhsach {
+    display: flex;
+    justify-content: space-between;
+}
+.chuongtrinh-item { width: 32%; }
+.khunganh {
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.chuongtrinh-item:last-child .anh { transform: scale(1.1); }
+.anh {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
+}
+h2 {
+    margin: 12px 0;
+    font-size: 18px;
+    font-weight: 400;
+}
+.mota {
+    margin: 17px 0;
+    font-size: 18px;
+    line-height: 1.4;
+    text-align: justify;
+}
+.timhieu {
+    display: inline-block;
+    margin: 0;
+    color: #ed1b2f;
+    font-weight: 700;
+    text-decoration: none;
+}
+.timhieu:hover { text-decoration: underline; }
+/* Biểu tượng cookie xuất hiện ở góc dưới trong hình tham khảo. */
+.cookie {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #df1731;
+    box-shadow: 0 4px 20px #df173133;
+}
+.cookie svg { width: 20px; height: 20px; }
